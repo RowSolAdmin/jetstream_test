@@ -26,6 +26,8 @@ This is a simplified example, this could use a Workqueue stream however have tak
 
 I am using 2.7.1 nats server running in a k8s cluster as per provided helm charts, but I also witnessed this behaviour - at least on my environment with 2.7.0
 
+nats cli 0.0.28
+
 ## Steps
 
 To start, from root of this project via command prompt execute
