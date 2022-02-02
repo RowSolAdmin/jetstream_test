@@ -1,5 +1,7 @@
 # jetstream_test
 
+## Description
+
 The following is some sample go code to illustrate what may be a problem in nats, with 'interest' streams.
 
 It appears we can have an stream of type interest, add consumers to take all messages from stream and acknowledge. The consumer states there are no further messages to process however
@@ -23,6 +25,8 @@ any space to be used but it was - so looked a bit deeper.
 This is a simplified example, this could use a Workqueue stream however have taken this approach to simplify what appears to be a sporadic issue with messages not being deleted.
 
 I am using 2.7.1 nats server running in a k8s cluster as per provided helm charts, but I also witnessed this behaviour - at least on my environment with 2.7.0
+
+## Steps
 
 To start, from root of this project via command prompt execute
 
