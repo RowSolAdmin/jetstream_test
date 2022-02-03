@@ -63,10 +63,10 @@ func main() {
 		} else {
 			fmt.Printf("expected %d messages to be created, actual %d\n\n\n", constants.NumberPartitions*constants.NumberMessages, count)
 		}
+	}
 
-		for _, item := range items {
-			fmt.Println(item)
-		}
+	for _, item := range items {
+		fmt.Println(item)
 	}
 }
 

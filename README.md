@@ -30,7 +30,9 @@ nats cli 0.0.28
 
 ## Steps
 
-To start, from root of this project via command prompt execute
+Start nats server fresh
+
+From root of this project via command prompt execute
 
     >> go run ./create/create.go
 
@@ -173,3 +175,36 @@ There does seem to be something odd going on, here is an example from another ru
     │ TEST_CONSUMER_2 │ Pull │ Explicit   │ 15.00s   │ 0           │ 0           │ 0           │ 39,980    │ kiot-nats-core-0, kiot-nats-core-1*, kiot-nats-core-2 │
     │ TEST_CONSUMER_3 │ Pull │ Explicit   │ 15.00s   │ 0           │ 0           │ 0           │ 40,000    │ kiot-nats-core-0, kiot-nats-core-1*, kiot-nats-core-2 │
     ╰─────────────────┴──────┴────────────┴──────────┴─────────────┴─────────────┴─────────────┴───────────┴───────────────────────────────────────────────────────╯
+
+## k8s configuration - via helm chart
+
+```yaml
+- name: kiot-nats-core
+  helm:
+    chart:
+      name: ./_app-k8s/charts/nats
+    values:
+      cluster:
+        enabled: true
+        replicas: 3
+      nats:
+        externalAccess: false
+        jetstream:
+          enabled: true
+          # fileStorage:
+          #   enabled: true
+          #   storageDirectory: /nats-data/core
+          #   size: ${KIOT_NATS_STORE_SIZE_PER_INSTANCE}
+          #   storageClassName: gp2
+          #   accessModes:
+          #     - ReadWriteOnce
+          #   annotations:
+          #     kiot-nats: "core"
+          memStorage:
+            enabled: true
+            size: 3Gi
+      natsbox:
+        enabled: false # disable creation of nats-box pod
+      podAnnotations:
+        prometheus.io/scrape: "true"
+```
