@@ -34,10 +34,10 @@ func main() {
 	for partition := 0; partition < constants.NumberPartitions; partition++ {
 
 		// setup subject
-		subject := constants.GetSubject(partition)
+		subject := constants.GetFilterSubject(partition)
 
 		// construct know durable name
-		durable := constants.GetDurable(partition)
+		durable := constants.GetDurableName(partition)
 
 		// setup the pull subscription
 		subscription, err := jsc.PullSubscribe(subject, durable)

@@ -12,18 +12,26 @@ const (
 	NumberMessages = 10000
 
 	// template consumer
-	TemplateDurable = "TEST_CONSUMER_%d"
+	templateDurable = "TEST_CONSUMER_%d"
 
 	// template subject
-	TemplateSubject = "TEST.*.*.*.%d"
+	templateSubject = "TEST.*.*.*.%d"
+
+	// template subject
+	actualSubject = "TEST.a.b.c.%d"
 )
 
-// GetDurable -
-func GetDurable(partition int) string {
-	return fmt.Sprintf(TemplateDurable, partition)
+// GetDurableName -
+func GetDurableName(partition int) string {
+	return fmt.Sprintf(templateDurable, partition)
 }
 
-// GetSubject -
-func GetSubject(partition int) string {
-	return fmt.Sprintf(TemplateSubject, partition)
+// GetFilterSubject -
+func GetFilterSubject(partition int) string {
+	return fmt.Sprintf(templateSubject, partition)
+}
+
+// GetActualSubject -
+func GetActualSubject(partition int) string {
+	return fmt.Sprintf(actualSubject, partition)
 }

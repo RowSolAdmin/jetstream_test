@@ -30,7 +30,7 @@ func main() {
 	}
 
 	for partition := 0; partition < constants.NumberPartitions; partition++ {
-		subject := constants.GetSubject(partition)
+		subject := constants.GetActualSubject(partition)
 
 		for counter := 0; counter < constants.NumberMessages; counter++ {
 

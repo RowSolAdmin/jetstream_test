@@ -32,7 +32,7 @@ func main() {
 		MaxAge:    0,
 		Subjects:  []string{"TEST.>"},
 		Storage:   nats.MemoryStorage,
-		Replicas:  3,
+		Replicas:  1,
 		Retention: nats.InterestPolicy,
 	})
 
@@ -47,10 +47,10 @@ func main() {
 	for partition := 0; partition < constants.NumberPartitions; partition++ {
 
 		// setup subject
-		subject := constants.GetSubject(partition)
+		subject := constants.GetFilterSubject(partition)
 
 		// construct know durable name
-		durable := constants.GetDurable(partition)
+		durable := constants.GetDurableName(partition)
 
 		consumer, err := jsc.AddConsumer(
 			constants.StreamName,
