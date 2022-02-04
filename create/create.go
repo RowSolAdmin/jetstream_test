@@ -47,7 +47,7 @@ func main() {
 	for partition := 0; partition < constants.NumberPartitions; partition++ {
 
 		// setup subject
-		subject := constants.GetFilterSubject(partition)
+		subject := constants.GetActualSubject(partition)
 
 		// construct know durable name
 		durable := constants.GetDurableName(partition)

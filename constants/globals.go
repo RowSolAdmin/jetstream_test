@@ -14,8 +14,8 @@ const (
 	// template consumer
 	templateDurable = "TEST_CONSUMER_%d"
 
-	// template subject
-	templateSubject = "TEST.*.*.*.%d"
+	// // template subject
+	// templateSubject = "TEST.*.*.*.%d"
 
 	// template subject
 	actualSubject = "TEST.a.b.c.%d"
@@ -26,10 +26,10 @@ func GetDurableName(partition int) string {
 	return fmt.Sprintf(templateDurable, partition)
 }
 
-// GetFilterSubject -
-func GetFilterSubject(partition int) string {
-	return fmt.Sprintf(templateSubject, partition)
-}
+// // GetFilterSubject -
+// func GetFilterSubject(partition int) string {
+// 	return fmt.Sprintf(templateSubject, partition)
+// }
 
 // GetActualSubject -
 func GetActualSubject(partition int) string {

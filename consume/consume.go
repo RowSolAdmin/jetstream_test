@@ -34,13 +34,13 @@ func main() {
 	for partition := 0; partition < constants.NumberPartitions; partition++ {
 
 		// setup subject
-		subject := constants.GetFilterSubject(partition)
+		subject := constants.GetActualSubject(partition)
 
 		// construct know durable name
 		durable := constants.GetDurableName(partition)
 
 		// setup the pull subscription
-		subscription, err := jsc.PullSubscribe(subject, durable)
+		subscription, err := jsc.PullSubscribe(subject, durable, nats.Bind(constants.StreamName, durable))
 		if err != nil {
 			fmt.Printf("unable to get subscription on '%s', returned following error '%v'\n", subject, err)
 			os.Exit(3)

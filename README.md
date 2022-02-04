@@ -77,10 +77,10 @@ The steam 'test_interest' is configured to subject TEST.>
 
 Each consumer is associated with a specific subject partition 0-3 as follows
 
-    TEST_CONSUMER_0     TEST.*.*.*.0
-    TEST_CONSUMER_1     TEST.*.*.*.1
-    TEST_CONSUMER_2     TEST.*.*.*.2
-    TEST_CONSUMER_3     TEST.*.*.*.3
+    TEST_CONSUMER_0     TEST.a.b.c.0
+    TEST_CONSUMER_1     TEST.a.b.c.1
+    TEST_CONSUMER_2     TEST.a.b.c.2
+    TEST_CONSUMER_3     TEST.a.b.c.3
 
 Next, run the following
 
@@ -130,10 +130,10 @@ The end of the output is shown below:
 
     >>> Counter:: 40000 [[Correct number of messages received as we would expect...]]
 
-    durable 'TEST_CONSUMER_0' subject 'TEST.*.*.*.0'
-    durable 'TEST_CONSUMER_1' subject 'TEST.*.*.*.1'
-    durable 'TEST_CONSUMER_2' subject 'TEST.*.*.*.2'
-    durable 'TEST_CONSUMER_3' subject 'TEST.*.*.*.3'
+    durable 'TEST_CONSUMER_0' subject 'TEST.a.b.c.0'
+    durable 'TEST_CONSUMER_1' subject 'TEST.a.b.c.1'
+    durable 'TEST_CONSUMER_2' subject 'TEST.a.b.c.2'
+    durable 'TEST_CONSUMER_3' subject 'TEST.a.b.c.3'
 
 So - we have received the 40000 message as we would expect however if we look at stream stat report we have 30,016 messages outstanding on this particular run and, this number can vary...
 However - we look at the consumer stats and they are all as we would expect, coupled with the check via consume.go at end we got the 40k messages as expected
