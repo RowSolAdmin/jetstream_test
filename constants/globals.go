@@ -14,9 +14,6 @@ const (
 	// template consumer
 	templateDurable = "TEST_CONSUMER_%d"
 
-	// // template subject
-	// templateSubject = "TEST.*.*.*.%d"
-
 	// template subject
 	actualSubject = "TEST.a.b.c.%d"
 )
